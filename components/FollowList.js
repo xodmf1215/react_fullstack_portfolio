@@ -4,7 +4,7 @@ import VirtualList from 'rc-virtual-list';
 import PropTypes from 'prop-types';
 import { List, Avatar, message } from 'antd';
 
-const FollowList = ({ header, data }) => {
+const FollowList = () => {
   const fakeDataUrl =
   'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
   const ContainerHeight = 400;
@@ -20,13 +20,13 @@ const FollowList = ({ header, data }) => {
   useEffect(() => {
     appendData();
   }, []);
-  /*
+  
   const onScroll = (e) => {
     if (e.currentTarget.scrollHeight - e.currentTarget.scrollTop === ContainerHeight) {
       appendData();
     }
   };
-  */
+  
   return (
     <List>
       <VirtualList
@@ -34,12 +34,7 @@ const FollowList = ({ header, data }) => {
         height={ContainerHeight}
         itemHeight={47}
         itemKey="email"
-        //onScroll={onScroll}
-        loadMore = { 
-          <div style= {{ textAlign: 'center', margin: '10px 0' }}>
-            <Button>더보기</Button>
-          </div>
-        }
+        onScroll={onScroll}
       >
         {(item) => (
           <List.Item key={item.email}>
@@ -55,5 +50,10 @@ const FollowList = ({ header, data }) => {
     </List>
   );
 };
-
+/*
+FollowList.propTypes = {
+  header: PropTypes.string.isRequired,
+  data: PropTypes.string.isRequired,
+}
+*/
 export default FollowList;

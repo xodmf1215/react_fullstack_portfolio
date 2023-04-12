@@ -1,6 +1,7 @@
 /* eslint-disable semi */
 import React, { useState, useCallback } from 'react';
 import { Form, Checkbox, Input, Button } from 'antd';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import styled from 'styled-components';
 // 컴포넌트에 props 로 넘겨주는 함수는 useCallback 을 써줘야 최적화가 된다
@@ -10,11 +11,12 @@ const ButtonWrapper = styled.div`
   margin-top: 1px;
 `;
 const LoginForm = ({ setIsLoggedIn }) => {
+  
   const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
   const onChangeId = useCallback((e) => {
     setId(e.target.value);
   }, []);
+  const [password, setPassword] = useState('');
   const onChangePassword = useCallback((e) => {
     setPassword(e.target.value);
   }, []);
@@ -107,5 +109,9 @@ const LoginForm = ({ setIsLoggedIn }) => {
       </Form>
   )
 }
+
+LoginForm.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
+}; 
 
 export default LoginForm;
