@@ -63,6 +63,10 @@ const AppLayout = ({ children }) => {
     {
       label: (<Link href="/signup">회원가입</Link>),
       key: 'signup',
+    },
+    {
+      label: (<Link href="/test">테스트</Link>),
+      key: 'test',
     }
   ];
   

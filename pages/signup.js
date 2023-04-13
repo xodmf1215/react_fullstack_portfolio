@@ -9,20 +9,20 @@ const ErrorMessage = styled.div`
   color: red; 
 `;
 const Signup = () => {
-  const [id, ohChangeId] = useInput('');
-  const [password, onChangePassword] = useInput('');
+  //const [id, ohChangeId] = useInput('');
+  //const [password, onChangePassword, getPassword] = useInput('');
   
-  /*
+  
   const [ id, setId ] = useState('');
   const ohChangeId = useCallback( (e) => {
     setId(e.target.value)
   }, []);
   
   const [ password, setPassword ] = useState('');
-  const ohChangePassword = useCallback( (e) => {
+  const onChangePassword = useCallback( (e) => {
     setPassword(e.target.value)
   }, []);
-  */
+  
   const [ passwordCheck, setPasswordCheck ] = useState('');
   const [passwordError, setPasswordError] = useState(false);
   const onChangePasswordCheck = useCallback( (e) => {
