@@ -5,8 +5,5 @@ export default (initialValue = null) => {
   const handler = useCallback((e) => {
     setValue(e.target.value);
   }, []);
-  const getValue = () => {
-    return value;
-  }
-  return [value, handler, getValue];
+  return [value, handler];
 }

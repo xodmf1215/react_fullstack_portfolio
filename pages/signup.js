@@ -9,10 +9,11 @@ const ErrorMessage = styled.div`
   color: red; 
 `;
 const Signup = () => {
-  //const [id, ohChangeId] = useInput('');
-  //const [password, onChangePassword, getPassword] = useInput('');
+  const [id, onChangeId] = useInput('');
+  const [nickname, onChangeNickname] = useInput('');
+  const [password, onChangePassword] = useInput('');
   
-  
+  /*
   const [ id, setId ] = useState('');
   const ohChangeId = useCallback( (e) => {
     setId(e.target.value)
@@ -22,13 +23,15 @@ const Signup = () => {
   const onChangePassword = useCallback( (e) => {
     setPassword(e.target.value)
   }, []);
-  
+  */
   const [ passwordCheck, setPasswordCheck ] = useState('');
   const [passwordError, setPasswordError] = useState(false);
+  
   const onChangePasswordCheck = useCallback( (e) => {
     setPasswordCheck(e.target.value);
     setPasswordError(e.target.value !== password);
-  }, [] );
+  }, [password] );
+
   const [term, setTerm] = useState('');
   const [termError, setTermError] = useState(false);
   const onChangeTerm = useCallback((e) => {
@@ -53,7 +56,12 @@ const Signup = () => {
         <div>
           <label htmlFor='user-id'>아이디</label>
           <br/>
-          <Input name = 'user-id' value = { id } required onChange= { ohChangeId } />
+          <Input name = 'user-id' value = { id } required onChange= { onChangeId } />
+        </div>
+        <div>
+          <label htmlFor='user-nickname'>닉네임</label>
+          <br/>
+          <Input name = 'user-nickname' value = { nickname } required onChange= { onChangeNickname } />
         </div>
         <div>
           <label htmlFor='user-password'>비밀번호</label>
